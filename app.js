@@ -7,6 +7,38 @@ GAME RULES:
 
 
 
+// Create an array with the flash cards in them, then cycle through the flash cards when the page loads
+
+let cardCount = 0;
+const cardName = 'hiragana-';
+
+let flashCards = cardName + cardCount + '.png';
+
+document.querySelector('.btn-good').addEventListener('click', function() {
+    document.querySelector('#score-0').innerHTML = '<img src="' + flashCards + '" alt="Card" class="card-move-left">';    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* //Code from previous project for reference
 
 var scores, roundScore, activePlayer, gamePlaying;
