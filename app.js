@@ -6,16 +6,28 @@ GAME RULES:
 */
 
 
-
-// Create an array with the flash cards in them, then cycle through the flash cards when the page loads
-
-let cardCount = 0;
+//Storing the flash card name to a variables and making a card counter to dynamically change the flash card name.
 const cardName = 'hiragana-';
+let cardCount = 0;
 
-let flashCards = cardName + cardCount + '.png';
 
+
+// On 'Got it' button click, the flash card is moved to the left, the main flash card cycles through and the count is incremented by 1
 document.querySelector('.btn-good').addEventListener('click', function() {
-    document.querySelector('#score-0').innerHTML = '<img src="' + flashCards + '" alt="Card" class="card-move-left">';    
+
+        cardCount += 1;
+        let flashCards = cardName + cardCount + '.png';
+        let cardElement = '<img src="hiragana-' + cardCount + '.png" alt="Card" class="card-move-left">';
+    
+    // Move the correctly guessed card from the middle, to the left (replace the html placeholder '1' on the left)
+        document.querySelector('#score-0').innerHTML = cardElement;
+    
+    //Increase the card count to show how many flash cards you have correctly guessed
+        document.querySelector('.player-current-score').textContent = cardCount;
+    
+    //Display the main card in a delay to what is being moved to the left
+        document.querySelector('.card').src = 'hiragana-' + (cardCount - 1) + '.png';
+    
 });
 
 
