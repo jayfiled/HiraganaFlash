@@ -34,15 +34,43 @@ document.querySelector('.btn-good').addEventListener('click', function() {
     
 });
 
+//A test to see if I can acheive a better result using arrays instead - **test success** implement into above
 
-//Didn't get it event listener function
-//add the flash card to an array, when the got it count has no more flashcards then add these.
-//Might need to put the original flash card deck in an array, and splce or unshift array items 
+/*
+//An array with elements that emulate flashcards
+let centreArr = []; //["pic-0", "pic-1", "pic-2", "pic-3", "pic-4"];
 
+//Add elements to this array based on click event
+let rightArr = ["moved to centre"];
 
+//Add elements to this array based on a click event
+let leftArr = [];
 
+//Move elements from the right array to the left array when the centre array runs out of elements.
 
+console.log(centreArr.length);
 
+function shiftElement() {
+    let count = 0;
+    leftArr[count] = centreArr.shift();
+    count += 1;
+    //if centre array's length === 0 then, move the first element from the rightArr to the centre arr
+    if (centreArr.length === 0) {
+        centreArr[centreArr.length] = rightArr.shift();
+        if (rightArr.lenth === 0) {
+            //end game, by replacing the flash card with an animated thumbs up
+            // ion-thumbsup change img class to .winner
+            //disable got it and didn't get it buttons.
+        }
+    }
+}
+
+shiftElement();
+
+console.log(leftArr);
+console.log(centreArr);
+
+*/
 
 
 
