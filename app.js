@@ -5,6 +5,30 @@ GAME RULES:
 
 */
 
+//Refactor into an object with methods 11/10/18
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Previous attempt
 
 //Storing the flash card name to a variables and making a card counter to dynamically change the flash card name.
 const cardName = 'hiragana-';

@@ -168,6 +168,10 @@ i {
     
 }
 
+.smile {
+  font-size: 60px;
+}
+
 @-webkit-keyframes shake {
   from,
   to {
