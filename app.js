@@ -5,40 +5,22 @@ GAME RULES:
 
 */
 
-//Refactor into an object with methods 11/10/18
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+///*
 // Previous attempt
 
-//Storing the flash card name to a variables and making a card counter to dynamically change the flash card name.
+let startCard = document.querySelector('.card');
+
+startCard.addEventListener('click', function() {
+    startCard.src = 'hiragana-0.png';
+})
+
+//Storing the flash card name to a variable and making a card counter to dynamically change the flash card name.
 const cardName = 'hiragana-';
 let cardCount = 0;
 
-
-
-// On 'Got it' button click, the flash card is moved to the left, the main flash card cycles through and the count is incremented by 1
 document.querySelector('.btn-good').addEventListener('click', function() {
-
 
         let flashCards = cardName + cardCount + '.png';
         let cardElementLeft = '<img src="hiragana-' + cardCount + '.png" alt="Card" class="card-move-left">';

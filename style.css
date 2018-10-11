@@ -39,8 +39,14 @@ body {
     overflow: hidden;
 }
 
-.player-0-panel,
-.player-1-panel {
+.left-panel {
+  background-color: #f7f7f7;
+  width: 50%;
+  float: left;
+  height: 600px;
+  padding: 100px;
+}
+.right-panel {
     width: 50%;
     float: left;
     height: 600px;
