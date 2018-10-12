@@ -5,42 +5,45 @@ GAME RULES:
 
 */
 
-
-
-///*
-// Previous attempt
-
 let startCard = document.querySelector('.card');
 
 startCard.addEventListener('click', function() {
     startCard.src = 'hiragana-0.png';
 })
-
-//Storing the flash card name to a variable and making a card counter to dynamically change the flash card name.
-const cardName = 'hiragana-';
-let cardCount = 0;
+console.log(document.querySelector('.btn-good').style)
+    // A counter to add to the end of the .png file name. Increments when a card is guessed correctly
+    let leftCardCount = 0;
 
 document.querySelector('.btn-good').addEventListener('click', function() {
 
-        let flashCards = cardName + cardCount + '.png';
-        let cardElementLeft = '<img src="hiragana-' + cardCount + '.png" alt="Card" class="card-move-left">';
+
+    // Store the name of the .png files to dynamically add a number to the end
+    const cardName = 'hiragana-';
+    let flashCards = cardName + leftCardCount + '.png';
+
+    // src tag with the .png file in it. Use variable to be able to cycle through all .png hiragana cards
+        let cardElementLeft = '<img src="hiragana-' + leftCardCount + '.png" alt="Card" class="card-move-left">';
     
-    // Move the correctly guessed card from the middle, to the left (replace the html placeholder '1' on the left)
+    // Move the correctly guessed card from the middle, to the left (replace the html placeholder '*' on the left)
         document.querySelector('#score-0').innerHTML = cardElementLeft;
-    
-            cardCount += 1;
-    
+ 
+    // Increment only if cards remaining, else show 'no more cards' and cross out 'Got it!'
+    if (leftCardCount >= 4) {
+        emptyCard = document.querySelector('.card');
+        emptyCard.src = 'empty.png'
+        document.querySelector('.btn-good').className = 'btn-grey';
+    } else {
+        leftCardCount += 1;
+        // Show the next card
+        document.querySelector('.card').src = 'hiragana-' + leftCardCount + '.png';
+    }
     //Increase the card count to show how many flash cards you have correctly guessed
-        document.querySelector('.player-current-score').textContent = cardCount;
-    
-    //Display the main card in a delay to what is being moved to the left
-        document.querySelector('.card').src = 'hiragana-' + cardCount + '.png';
-    
-    //If you reach the end of the deck and there is a count in the didn't get it column, then display the cards that we didn't get.
-    
+        document.querySelector('.player-current-score').textContent = leftCardCount;
+     
 });
 
-//A test to see if I can acheive a better result using arrays instead - **test success** implement into above
+
+//A test to see if I can achieve a better result using arrays instead - **test success** implement into above
 
 /*
 //An array with elements that emulate flashcards

@@ -127,8 +127,11 @@ button {
     transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover { font-weight: 600; }
-button:hover i { margin-right: 20px; }
+button.btn-good:hover { font-weight: 600; }
+button.btn-good:hover i { margin-right: 20px; }
+
+button.btn-bad:hover { font-weight: 600; }
+button.btn-bad:hover i { margin-right: 20px; }
 
 button:focus {
     outline: none;
@@ -148,6 +151,8 @@ i {
 .btn-new { top: 45px;}
 .btn-shuffle { top: 403px;}
 .btn-good { top: 417px; }
+.btn-grey {top: 417px; color: grey; text-decoration: line-through;}
+
 .btn-bad { top: 482px; }
 
 .card {
