@@ -13,12 +13,16 @@ startCard.addEventListener('click', function() {
 })
 
 // A counter to add to the end of the .png file name. Increments when a card is guessed correctly
+let cardAmount = 0;
 let cardCount = 0;
+let cardFunc = function() {
+    return cardCount = Math.floor(Math.random() * 15);
+}
 let gotItCardCount = 0;
 let didntGetItCardCount = 0;
 
 let gotItFunc = function() {
-    
+
     // Store the name of the .png files to dynamically add a number to the end
     const cardName = 'hiragana-';
     let flashCards = cardName + cardCount + '.png';
@@ -31,7 +35,7 @@ let gotItFunc = function() {
         document.querySelector('#score-0').innerHTML = cardElementLeft;
  
     // Increment only if cards remaining, else show 'no more cards', and cross out 'Got it!' and remove event listener
-    if (cardCount >= 4) {
+    if (cardAmount >= 14) {
         emptyCard = document.querySelector('.card');
         emptyCard.src = 'empty.png'
         document.querySelector('.btn-bad').removeEventListener('click', didntGetItFunc);
@@ -39,9 +43,10 @@ let gotItFunc = function() {
         document.querySelector('.btn-good').className = 'btn-good-grey';
         document.querySelector('.btn-bad').className = 'btn-bad-grey';
     } else {
-        cardCount += 1;
+        cardAmount += 1;
         gotItCardCount += 1;
-        // Show the next card
+        // Randomize and show the next card
+        cardFunc();
         document.querySelector('.card').src = 'hiragana-' + cardCount + '.png';
     }
     //Increase the card count to show how many flash cards you have correctly guessed
@@ -50,6 +55,7 @@ let gotItFunc = function() {
 };
 
 let didntGetItFunc = function() {
+
     // Store the name of the .png files to dynamically add a number to the end
     const cardName = 'hiragana-';
     let flashCards = cardName + cardCount + '.png';
@@ -62,7 +68,7 @@ let didntGetItFunc = function() {
         document.querySelector('#score-1').innerHTML = cardElementLeft;
  
     // Increment only if cards remaining, else show 'no more cards' and cross out 'Got it!'
-    if (cardCount >= 4) {
+    if (cardAmount >= 14) {
         emptyCard = document.querySelector('.card');
         emptyCard.src = 'empty.png'
         document.querySelector('.btn-bad').removeEventListener('click', didntGetItFunc);
@@ -70,9 +76,10 @@ let didntGetItFunc = function() {
         document.querySelector('.btn-good').className = 'btn-good-grey';
         document.querySelector('.btn-bad').className = 'btn-bad-grey';
     } else {
-        cardCount += 1;
+        cardAmount += 1;
         didntGetItCardCount += 1;
-        // Show the next card
+        // Randomize and show the next card
+        cardFunc();
         document.querySelector('.card').src = 'hiragana-' + cardCount + '.png';
     }
     //Increase the card count to show how many flash cards you have correctly guessed
@@ -81,7 +88,7 @@ let didntGetItFunc = function() {
 };
 
 let newGameFunc = function() {
-    cardCount = 0;
+    cardAmount = 0;
     gotItCardCount = 0;
     didntGetItCardCount = 0;
     startCard.src = 'start.png'
