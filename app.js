@@ -7,41 +7,105 @@ GAME RULES:
 
 let startCard = document.querySelector('.card');
 
+// Game start - click the start icon to begin
 startCard.addEventListener('click', function() {
     startCard.src = 'hiragana-0.png';
 })
-console.log(document.querySelector('.btn-good').style)
-    // A counter to add to the end of the .png file name. Increments when a card is guessed correctly
-    let leftCardCount = 0;
 
-document.querySelector('.btn-good').addEventListener('click', function() {
+// A counter to add to the end of the .png file name. Increments when a card is guessed correctly
+let cardCount = 0;
+let gotItCardCount = 0;
+let didntGetItCardCount = 0;
 
-
+let gotItFunc = function() {
+    
     // Store the name of the .png files to dynamically add a number to the end
     const cardName = 'hiragana-';
-    let flashCards = cardName + leftCardCount + '.png';
+    let flashCards = cardName + cardCount + '.png';
+
 
     // src tag with the .png file in it. Use variable to be able to cycle through all .png hiragana cards
-        let cardElementLeft = '<img src="hiragana-' + leftCardCount + '.png" alt="Card" class="card-move-left">';
+        let cardElementLeft = '<img src="hiragana-' + cardCount + '.png" alt="Card" class="card-move">';
     
-    // Move the correctly guessed card from the middle, to the left (replace the html placeholder '*' on the left)
+    // Move the correctly guessed card from the middle, to the left
         document.querySelector('#score-0').innerHTML = cardElementLeft;
  
-    // Increment only if cards remaining, else show 'no more cards' and cross out 'Got it!'
-    if (leftCardCount >= 4) {
+    // Increment only if cards remaining, else show 'no more cards', and cross out 'Got it!' and remove event listener
+    if (cardCount >= 4) {
         emptyCard = document.querySelector('.card');
         emptyCard.src = 'empty.png'
-        document.querySelector('.btn-good').className = 'btn-grey';
+        document.querySelector('.btn-bad').removeEventListener('click', didntGetItFunc);
+        document.querySelector('.btn-good').removeEventListener('click', gotItFunc);
+        document.querySelector('.btn-good').className = 'btn-good-grey';
+        document.querySelector('.btn-bad').className = 'btn-bad-grey';
     } else {
-        leftCardCount += 1;
+        cardCount += 1;
+        gotItCardCount += 1;
         // Show the next card
-        document.querySelector('.card').src = 'hiragana-' + leftCardCount + '.png';
+        document.querySelector('.card').src = 'hiragana-' + cardCount + '.png';
     }
     //Increase the card count to show how many flash cards you have correctly guessed
-        document.querySelector('.player-current-score').textContent = leftCardCount;
+        document.querySelector('#current-0').textContent = gotItCardCount;
      
-});
+};
 
+let didntGetItFunc = function() {
+    // Store the name of the .png files to dynamically add a number to the end
+    const cardName = 'hiragana-';
+    let flashCards = cardName + cardCount + '.png';
+
+
+    // src tag with the .png file in it. Use variable to be able to cycle through all .png hiragana cards
+        let cardElementLeft = '<img src="hiragana-' + cardCount + '.png" alt="Card" class="card-move">';
+    
+    // Move the correctly guessed card from the middle, to the left
+        document.querySelector('#score-1').innerHTML = cardElementLeft;
+ 
+    // Increment only if cards remaining, else show 'no more cards' and cross out 'Got it!'
+    if (cardCount >= 4) {
+        emptyCard = document.querySelector('.card');
+        emptyCard.src = 'empty.png'
+        document.querySelector('.btn-bad').removeEventListener('click', didntGetItFunc);
+        document.querySelector('.btn-good').removeEventListener('click', gotItFunc);
+        document.querySelector('.btn-good').className = 'btn-good-grey';
+        document.querySelector('.btn-bad').className = 'btn-bad-grey';
+    } else {
+        cardCount += 1;
+        didntGetItCardCount += 1;
+        // Show the next card
+        document.querySelector('.card').src = 'hiragana-' + cardCount + '.png';
+    }
+    //Increase the card count to show how many flash cards you have correctly guessed
+        document.querySelector('#current-1').textContent = didntGetItCardCount;
+
+};
+
+let newGameFunc = function() {
+    cardCount = 0;
+    gotItCardCount = 0;
+    didntGetItCardCount = 0;
+    startCard.src = 'start.png'
+    document.querySelector('.btn-good-grey').className = 'btn-good';
+    document.querySelector('.btn-bad-grey').className = 'btn-bad';
+    // remove the cards on the left and right
+    imgTag = document.getElementsByClassName('card-move');
+    // Polyfill to make the HTML collection iterable for older browsers
+    HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+// Incrementing Loop doesn't work, because you remove the first element, so, the only element in the array is at index 0, but the iterator is set to 1.
+    for (let i = 0; i < imgTag.length; i) {
+        imgTag[i].parentNode.removeChild(imgTag[i]);
+    }
+    document.querySelector('.btn-good').addEventListener('click', gotItFunc);
+    document.querySelector('.btn-bad').addEventListener('click', didntGetItFunc);
+    document.querySelector('#current-0').textContent = '';
+    document.querySelector('#current-1').textContent = '';
+};
+
+document.querySelector('.btn-good').addEventListener('click', gotItFunc);
+
+document.querySelector('.btn-bad').addEventListener('click', didntGetItFunc);
+
+document.querySelector('.btn-new').addEventListener('click', newGameFunc);
 
 //A test to see if I can achieve a better result using arrays instead - **test success** implement into above
 

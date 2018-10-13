@@ -21,7 +21,7 @@ body {
     background-color: #8395a7;
     background-size: cover;
     background-position: center;
-    font-family: 'Orienta', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 300;
     position: relative;
     height: 100vh;
@@ -91,10 +91,27 @@ body {
     
 }
 
-.player-current-box {
+.player-current-box-left {
+  position: absolute;
+  top: 70%;
+  left: 18%;
     background-color: #54a0ff;
     color: #fff;
-    width: 40%;
+    width: 10%;
+    height: 15%;
+    margin: 0 auto;
+    padding: 12px;
+    text-align: center;
+}
+
+.player-current-box-right {
+  position: absolute;
+  top: 70%;
+  left: 72%;
+    background-color: #54a0ff;
+    color: #fff;
+    width: 10%;
+    height: 15%;
     margin: 0 auto;
     padding: 12px;
     text-align: center;
@@ -119,7 +136,7 @@ button {
     color: #555;
     background: none;
     border: none;
-    font-family: Lato;
+    font-family: Nunito;
     font-size: 20px;
     text-transform: uppercase;
     cursor: pointer;
@@ -151,9 +168,10 @@ i {
 .btn-new { top: 45px;}
 .btn-shuffle { top: 403px;}
 .btn-good { top: 417px; }
-.btn-grey {top: 417px; color: grey; text-decoration: line-through;}
+.btn-good-grey {top: 417px; color: grey; text-decoration: line-through;}
 
 .btn-bad { top: 482px; }
+.btn-bad-grey { top: 482px; color: grey; text-decoration: line-through;}
 
 .card {
     position: absolute;
@@ -164,7 +182,7 @@ i {
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
-.card-move-left {
+.card-move {
     
     height: 75px;
     position: relative;
