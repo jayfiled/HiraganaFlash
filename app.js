@@ -9,6 +9,9 @@ let startCard = document.querySelector('.card');
 
 // Game start - click the start icon to begin
 startCard.addEventListener('click', function() {
+    /* uncomment below to make the game go full screen when started
+    htmlFull = document.querySelector('html');
+    htmlFull.webkitRequestFullscreen(); Chrome, Safari and Opera only  */
     startCard.src = 'hiragana-0.png';
 })
 

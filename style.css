@@ -39,15 +39,17 @@ body {
     overflow: hidden;
 }
 
-@media (max-width: 900px) {
-  width: 95%;
+@media (max-width: 1000px) {
+  .wrapper {
+  width: 90%;
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  }
 }
 
 .left-panel {
@@ -176,7 +178,7 @@ i {
     transition: margin 0.3s;
 }
 
-.btn-new { top: 45px;}
+.btn-new { top: 70px;}
 .btn-shuffle { top: 403px;}
 .btn-good { top: 417px; }
 .btn-good-grey {top: 417px; color: grey; text-decoration: line-through;}
@@ -191,6 +193,37 @@ i {
     transform: translateX(-50%);
     height: 150px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+@media (max-width: 820px){
+  .card {
+    position: absolute;
+    left: 50%;
+    top: 178px;
+    transform: translateX(-50%);
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+  }
+  .player-name {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    position: absolute;
+    left: 50%;
+    top: 178px;
+    transform: translateX(-50%);
+    height: 50px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+  }
+  .player-name {
+    font-size: 20px;
+  }
+  .smile {
+    font-size: 20px;
+  }
 }
 
 .card-move {
@@ -209,7 +242,7 @@ i {
 }
 
 .smile {
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .emoticon {
