@@ -28,6 +28,27 @@ body {
     color: #555;
 }
 
+.welcome-start {
+    display: grid;
+    position: absolute;
+    color: white;
+    font-size: 100px;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+    top: 0;
+    transition: all 5s;
+    
+}
+
+.welcome-started {
+  top: -8000px;
+
+}
+
 .wrapper {
     width: 67%;
     position: absolute;

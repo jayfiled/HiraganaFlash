@@ -5,14 +5,14 @@ GAME RULES:
 
 */
 
-let startCard = document.querySelector('.card');
+let startCard = document.querySelector('.welcome-start');
 
 // Game start - click the start icon to begin
 startCard.addEventListener('click', function() {
     /* uncomment below to make the game go full screen when started
     htmlFull = document.querySelector('html');
     htmlFull.webkitRequestFullscreen(); Chrome, Safari and Opera only  */
-    startCard.src = 'hiragana-0.png';
+    startCard.classList.add('welcome-started');
 })
 
 // A counter to add to the end of the .png file name. Increments when a card is guessed correctly
