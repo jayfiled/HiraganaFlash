@@ -5,14 +5,14 @@ GAME RULES:
 
 */
 
-let startCard = document.querySelector('.welcome-start');
+let startScreen = document.querySelector('.welcome-start');
 
 // Game start - click the start icon to begin
-startCard.addEventListener('click', function() {
+startScreen.addEventListener('click', function() {
     /* uncomment below to make the game go full screen when started
     htmlFull = document.querySelector('html');
     htmlFull.webkitRequestFullscreen(); Chrome, Safari and Opera only  */
-    startCard.classList.add('welcome-started');
+    startScreen.classList.add('welcome-started');
 })
 
 // A counter to add to the end of the .png file name. Increments when a card is guessed correctly
@@ -21,6 +21,13 @@ let cardCount = 0;
 let cardFunc = function() {
     return cardCount = Math.floor(Math.random() * 15);
 }
+
+let onloadFunc = function() {
+    let startCard = document.querySelector('.card');
+    startCard.src = 'hiragana-' + cardFunc() + '.png';
+}
+window.onload = onloadFunc();
+
 let gotItCardCount = 0;
 let didntGetItCardCount = 0;
 
@@ -94,7 +101,7 @@ let newGameFunc = function() {
     cardAmount = 0;
     gotItCardCount = 0;
     didntGetItCardCount = 0;
-    startCard.src = 'start.png'
+    startScreen.src = 'start.png'
     document.querySelector('.btn-good-grey').className = 'btn-good';
     document.querySelector('.btn-bad-grey').className = 'btn-bad';
     // remove the cards on the left and right
