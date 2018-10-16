@@ -4,14 +4,10 @@ GAME RULES:
     - A hiragana flash card is displayed and you have to say it out loud
 
 */
-
+// Game start
+    // click the start icon to begin
 let startScreen = document.querySelector('.welcome-start');
-
-// Game start - click the start icon to begin
 startScreen.addEventListener('click', function() {
-    /* uncomment below to make the game go full screen when started
-    htmlFull = document.querySelector('html');
-    htmlFull.webkitRequestFullscreen(); Chrome, Safari and Opera only  */
     startScreen.classList.add('welcome-started');
 })
 
