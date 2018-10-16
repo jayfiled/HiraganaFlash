@@ -1,15 +1,20 @@
 # HiraganaFlash
 :ideograph_advantage: A game for my kids to practice their Japanese literacy. :jp:
 
-Future features:
+Future verisons:
+- Add sounds
+- Add more hiragana (31 left)
+- Clear known hiragana, move unknown hiragana back into the main area for testing
+
 - Replace img files with svg
-- Add sounds 
-- Add the remaining 41 Hiragana
 - Add different play modes
 
 Known issues:
-- New game doesn't reset the game until the game is complete
+- ~~New game doesn't reset the game until the game is complete~~
 - There a x number of flash cards, but you will see one more than once due to the likelihood of getting duplicate numbers when randomizing.
 
-Remixed a previous project to create a simple Japanese flash card game
+#Changelog
+- 13-10-2018 - Organised the UI and build out the game logic
+
+- 16-10-2018 - Refactored all the JS logic using DRY principles.  Re-wrote the comments and made variable names more relevant. 
 
