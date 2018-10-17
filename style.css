@@ -87,6 +87,20 @@ body {
     padding: 100px;
 }
 
+.audio-available {
+  position: absolute;
+  left: 54%;
+  top: 32%;
+  z-index: 1;
+  color: rgba(223, 230, 233,0.1);
+}
+
+.card:hover + .audio-available {
+
+  color: rgba(223, 230, 233,0.5);
+  cursor: pointer;
+}
+
 
 
 /**********************************************

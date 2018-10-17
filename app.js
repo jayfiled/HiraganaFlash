@@ -44,7 +44,7 @@ let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
  
     // If there aren't any cards remaining, remove game functions:
     // (event listeners, buttons), otherwise, show the next card
-    if (cardAmount >= 14) {
+    if (cardAmount >= 4) {
         emptyCard = document.querySelector('.card');
         emptyCard.src = 'empty.png'
         document.querySelector('.btn-good').removeEventListener('click', clickedGotIt);
@@ -100,6 +100,19 @@ const clickedDidntGetIt = function() {
     gotItFunc('score-1', didntGetItCardCount, 'current-1')
 };
 
+const playAudio = function() {
+    let getCard = document.querySelector('.card').src;
+    console.log(getCard);
+//     if (document.querySelector('.card').src === 'http://127.0.0.1:5500/empty.png') {
+//     alert('No more cards!');
+//     }
+//  else {
+ let getAudioElement = document.querySelector('.hiragana-sound')
+        getAudioElement.src = 'nativeWoman/hiraWoman-' + randomCard + '.mp3';
+        getAudioElement.play();
+   // } 
+};
+
 // Event listeners for the three buttons
 
 document.querySelector('.btn-good').addEventListener('click', clickedGotIt);
@@ -107,6 +120,8 @@ document.querySelector('.btn-good').addEventListener('click', clickedGotIt);
 document.querySelector('.btn-bad').addEventListener('click', clickedDidntGetIt);
 
 document.querySelector('.btn-new').addEventListener('click', newGameFunc);
+
+document.querySelector('.card').addEventListener('click', playAudio);
 
 
 /*
