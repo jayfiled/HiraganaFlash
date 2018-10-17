@@ -22,7 +22,7 @@ let cardFunc = function() {
 
 let onLoad = function() {
     let startCard = document.querySelector('.card');
-    startCard.src = 'hiragana-' + cardFunc() + '.png';
+    startCard.src = 'cards/hiragana-' + cardFunc() + '.png';
 }
 
 window.onload = onLoad();
@@ -37,7 +37,7 @@ let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
     let flashCards = cardName + randomCard + '.png';
 
     // The main card that you look at as a test of your knowledge
-        let mainCard = '<img src="hiragana-' + randomCard + '.png" alt="Card" class="card-move">';
+        let mainCard = '<img src="cards/hiragana-' + randomCard + '.png" alt="Card" class="card-move">';
     
     // Move the card from the middle, to the left or right based on which event is triggered
         document.querySelector(`[id=${CSS.escape(leftOrRight)}]`).innerHTML = mainCard;
@@ -46,7 +46,7 @@ let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
     // (event listeners, buttons), otherwise, show the next card
     if (cardAmount >= 4) {
         emptyCard = document.querySelector('.card');
-        emptyCard.src = 'empty.png'
+        emptyCard.src = 'cards/empty.png'
         document.querySelector('.btn-good').removeEventListener('click', clickedGotIt);
         document.querySelector('.btn-bad').removeEventListener('click', clickedDidntGetIt);
         document.querySelector('.btn-good').className = 'btn-good-grey';
@@ -54,7 +54,7 @@ let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
     } else {
         cardAmount += 1;
         cardFunc();
-        document.querySelector('.card').src = 'hiragana-' + randomCard + '.png';
+        document.querySelector('.card').src = 'cards/hiragana-' + randomCard + '.png';
     }
     //Increase the card count to show how many flash cards you have correctly guessed
         document.querySelector(`[id=${CSS.escape(leftOrRightCounter)}]`).textContent = gotItDidntGetIt;
@@ -101,16 +101,19 @@ const clickedDidntGetIt = function() {
 };
 
 const playAudio = function() {
-    let getCard = document.querySelector('.card').src;
-    console.log(getCard);
-//     if (document.querySelector('.card').src === 'http://127.0.0.1:5500/empty.png') {
-//     alert('No more cards!');
-//     }
-//  else {
+    // check to see if there are any cards left to show
+    let getCard = document.querySelector('.card');
+    stuffBeforePngSource = getCard.src.slice(0, getCard.src.indexOf('empty.png'));
+
+    if (document.querySelector('.card').src === stuffBeforePngSource + 'empty.png') {
+        alert('No more cards left in the deck! Click new game to continue')
+        //getCard.className += ' card-end';
+    }
+ else {
  let getAudioElement = document.querySelector('.hiragana-sound')
         getAudioElement.src = 'nativeWoman/hiraWoman-' + randomCard + '.mp3';
         getAudioElement.play();
-   // } 
+   } 
 };
 
 // Event listeners for the three buttons
@@ -130,5 +133,10 @@ References:
     - Using variables in query selector - you need to use the CSS.escape() method to make sure the string is properly encoded for use in a CSS expression
     https://stackoverflow.com/questions/37081721/use-variables-in-document-queryselector
 
+    - Making an element to hover when you hover over a different element
+    https://stackoverflow.com/questions/4502633/how-to-affect-other-elements-when-a-div-is-hovered 
+
+    - Add an extra class - put a space before the classname and - select the element, i.e. element = " new-class"
+    https://stackoverflow.com/questions/507138/how-do-i-add-a-class-to-a-given-element
 
 */
