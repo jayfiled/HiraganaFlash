@@ -44,7 +44,7 @@ let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
  
     // If there aren't any cards remaining, remove game functions:
     // (event listeners, buttons), otherwise, show the next card
-    if (cardAmount >= 4) {
+    if (cardAmount >= 14) {
         emptyCard = document.querySelector('.card');
         emptyCard.src = 'cards/empty.png'
         document.querySelector('.btn-good').removeEventListener('click', clickedGotIt);
