@@ -56,13 +56,13 @@ body {
   padding: 1em;
   z-index: 1;
 }
+/* Blinking cursor
+https://stackoverflow.com/questions/42481586/input-cursor-that-is-blinking */
 
 /* submit input */
-.start-game {
+button.start-game {
   position: relative;
-  background: none;
   cursor: pointer;
-  border: none;
   width: 10%;
   padding: 1em;
   border-radius: 20px;
