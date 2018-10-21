@@ -28,7 +28,7 @@ body {
 
 .welcome-start {
     display: grid;
-    position: absolute;
+    position: relative;
     align-content: center;
     justify-content: center;
     width: 100%;
@@ -40,32 +40,85 @@ body {
     
 }
 
+.welcome-start i {
+  position: absolute;
+  width: 1px;
+  height: 2em;
+  background-color: black;
+  left: 33%;
+  top: 55%;
+  animation-name: blink;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+
+.welcome-start input:focus + i {
+  display: none;
+}
+
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 .card-question {
-  color: white;
-  font-size: 2em;
+  color: #636e72;
+  font-size: 3em;
   padding: 2em;
 }
 
 /* input */
 .number-of-flash-cards {
-  color: black;
-  position: relative;
+  color: #636e72;
+  position: absolute;
   background: none;
-  border-style: none;
-  width: 10%;
-  padding: 1em;
+  border: 1px black;
+  height: 4.5em;
+  width: 15%;
+  appearance: none;
+  font-size: 4em;
+  left: 33%;
+  top: 43%;
+  outline: none;
+  /* padding: 1em; */
   z-index: 1;
 }
 /* Blinking cursor
 https://stackoverflow.com/questions/42481586/input-cursor-that-is-blinking */
 
+/* Turn off number spinners on input */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 /* submit input */
 button.start-game {
-  position: relative;
+  position: absolute;
   cursor: pointer;
-  width: 10%;
+  color: #636e72;
+  font-size: 3em;
+  font-weight: 600;
+  top: 50%;
+  left: 60%;
+  width: 15%;
   padding: 1em;
   border-radius: 20px;
+  z-index: 1;
+}
+
+div.spin-me {
+  position: absolute;
+  cursor: pointer;
+  color: #636e72;
+  font-size: 3em;
+  top: 55%;
+  left: 54%;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
   z-index: 1;
 }
 

@@ -5,30 +5,35 @@ GAME RULES:
 
 */
 // Game start
-    // Click the start screen to start
-let startScreen = document.querySelector('.welcome-start');
-startScreen.addEventListener('click', function() {
-    startScreen.classList.add('welcome-started');
-})
-
-// Counters for how many cards total we have and how many we have seen
-let cardAmount = 0;
-let randomCard = 0;
 
 // A random number generator for the next cards
 let cardFunc = function() {
-    return randomCard = Math.floor(Math.random() * 15);
+    return randomCard = Math.floor(Math.random() * cardLimit);
 }
+
+let cardLimit = 0;
 
 let onLoad = function() {
     let startCard = document.querySelector('.card');
     startCard.src = 'cards/hiragana-' + cardFunc() + '.png';
 }
 
-window.onload = onLoad();
+// Click the go button to start
+getHowManyCards = function() {
+    let numberOfFlashCards = document.querySelector('.number-of-flash-cards');
+    cardLimit = numberOfFlashCards.valueAsNumber;
+    console.log('after', cardAmount);
+    document.querySelector('.welcome-start').classList.add('welcome-started');
+    onLoad();
+}
+
+// Counters for how many cards total we have and how many we have seen
+let randomCard = 0;
+let cardAmount = 0;
 
 let gotItCardCount = 0;
 let didntGetItCardCount = 0;
+
 
 let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
 
@@ -44,7 +49,7 @@ let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
  
     // If there aren't any cards remaining, remove game functions:
     // (event listeners, buttons), otherwise, show the next card
-    if (cardAmount >= 4) {
+    if (cardAmount >= cardLimit) {
         emptyCard = document.querySelector('.card');
         emptyCard.src = 'cards/empty.png'
         document.querySelector('.btn-good').removeEventListener('click', clickedGotIt);
