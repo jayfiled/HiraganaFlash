@@ -21,6 +21,10 @@ let onLoad = function() {
 // Click the go button to start
 getHowManyCards = function() {
     let numberOfFlashCards = document.querySelector('.number-of-flash-cards');
+    if (!numberOfFlashCards.valueAsNumber) {
+        window.alert('Please enter how many flash cards you want to be tested on in the field before pressing \'Go\'');
+        return
+    }
     cardLimit = numberOfFlashCards.valueAsNumber;
     console.log('after', cardAmount);
     document.querySelector('.welcome-start').classList.add('welcome-started');
@@ -54,8 +58,8 @@ let gotItFunc = function(leftOrRight, gotItDidntGetIt, leftOrRightCounter) {
         emptyCard.src = 'cards/empty.png'
         document.querySelector('.btn-good').removeEventListener('click', clickedGotIt);
         document.querySelector('.btn-bad').removeEventListener('click', clickedDidntGetIt);
-        document.querySelector('.btn-good').className = 'btn-good-grey';
-        document.querySelector('.btn-bad').className = 'btn-bad-grey';
+        document.querySelector('.btn-good').className = 'btn btn-good-grey';
+        document.querySelector('.btn-bad').className = 'btn btn-bad-grey';
     } else {
         cardAmount += 1;
         cardFunc();
@@ -74,8 +78,8 @@ let newGameFunc = function() {
     // If Got it button are greyed out, remove it from both buttons
     if (document.querySelector('.btn-good-grey'))
     {
-    document.querySelector('.btn-good-grey').className = 'btn-good';
-    document.querySelector('.btn-bad-grey').className = 'btn-bad';
+    document.querySelector('.btn-good-grey').className = 'btn btn-good';
+    document.querySelector('.btn-bad-grey').className = 'btn btn-bad';
     // Re-add the event listeners and remove the text in the counter boxes
     document.querySelector('.btn-good').addEventListener('click', clickedGotIt);
     document.querySelector('.btn-bad').addEventListener('click', clickedDidntGetIt);
