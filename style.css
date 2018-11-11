@@ -50,10 +50,11 @@ body {
 .welcome-top {
   background-color: #54a0ff;
   position: absolute;
-  top: -200px;
-  height: 300px;
-  width: 1000px;
-  transform: skewY(10deg);
+  top: -350px;
+  left: 0px;
+  height: 500px;
+  width: 1920px;
+  transform: skewY(8.5deg);
   z-index: 1;
   /* border: 3px solid orange; */
 }
@@ -81,7 +82,8 @@ h2 {
   width: 340px;
   font-size: 2em;
   outline: none;
-  border: none;
+  border: 3px solid rgba(53, 59, 72, .1);
+  padding: 20px;
   margin-top: 30px;
   z-index: 3;
 }
@@ -89,19 +91,12 @@ h2 {
 .welcome-bottom {
   background-color: #54a0ff;
   position: absolute;
-  bottom: -250px;
-  height: 300px;
-  width: 1000px;
-  transform: skewY(10deg);
+  bottom: -550px;
+  left: 0px;
+  height: 500px;
+  width: 1920px;
+  transform: skewY(8.5deg);
   z-index: 1;
-}
-
-#welcome-text {
-  position: absolute;
-  font-size: 3em;
-  grid-area: text;
-  align-self: center;
-  left: 10%
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -115,30 +110,24 @@ input[type=number] {
   }
 
 .start-game {
-  grid-area: button;
-  align-self: center;
-  justify-self: center;
-  position: relative;
-  background-color: #8395a7;
+  background-color: #54a0ff;
   cursor: pointer;
-  width: 10%;
-  height: 35%;
+  width: 30%;
   font-size: 250%;
   border: none; /* 4px solid #0984e3;*/
-  border-radius: 15px;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
-  box-shadow: .2em .2em .3em rgba(53, 59, 72,0.19), -.2em -.2em .3em rgba(53, 59, 72,0.19);
+  border-radius: 500px;
+  margin-top: 70px;
+  padding: 40px 40px;
+  box-shadow: .2em .2em .3em rgba(53, 59, 72,0.10), -.2em -.2em .3em rgba(53, 59, 72,0.10);
+  z-index: 3;
   /* transition: .1s ease-out; */
 }
 
-.start-game:hover {
+/* .start-game:hover {
   width: 10.5%;
   height: 35.5%;
   font-size: 270%;
-}
+} */
 
 .welcome-started {
   top: -100%;
@@ -480,4 +469,43 @@ i {
 .winner {
   -webkit-animation-name: winner;
   animation-name: winner;
+}
+
+@media only screen and (max-width: 980px) {
+  .welcome-bottom {
+    background-color: #54a0ff;
+    position: absolute;
+    bottom: -100px;
+    left: 0px;
+    height: 300px;
+    width: 980px;
+    transform: skewY(8.5deg);
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: 10em;
+    z-index: 3;
+  }
+
+  h2 {
+    margin-top: 20px;
+    font-size: 4em;
+    z-index: 3;
+  }
+  
+  .number-of-flash-cards {
+    position: relative;
+    background: none;
+    width: 640px;
+    font-size: 4em;
+    outline: none;
+    border: none;
+    border: 3px solid rgba(53, 59, 72, .1);
+    padding: 20px;
+    margin-top: 30px;
+    z-index: 3;
+    cursor: default;
+  }
+
 }
